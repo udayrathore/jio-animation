@@ -57,3 +57,15 @@
 .globe-gallery__item:focus-visible{outline:2px solid #e90093;outline-offset:3px}
 .globe-zoom{perspective:none}
 @media(max-width:760px){.stage .globe-gallery{width:74%;font-size:8px}}
+
+/* The list owns projection. Flat outer wrappers avoid nested Safari 3D layers. */
+.stage, .globe-zoom { perspective: none; transform-style: flat; }
+.globe-gallery, .globe-gallery__collection, .globe-gallery__list { transform-style: flat; }
+/* Keep artwork visible even if JavaScript is blocked or unavailable. */
+.globe-gallery:not([data-globe-gallery-status="active"]) .globe-gallery__list { position: relative; display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
+.globe-gallery:not([data-globe-gallery-status="active"]) .globe-gallery__item { position: relative; top: auto; left: auto; visibility: visible; aspect-ratio: 16 / 9; }
+/* Pointer interaction should not draw a focus ring around the globe. */
+.globe-gallery:focus:not(:focus-visible),
+.globe-gallery__item:focus:not(:focus-visible) { outline: none; }
+.globe-gallery:focus-visible { outline: 2px solid #e90093; outline-offset: 6px; }
+.globe-gallery { -webkit-tap-highlight-color: transparent; }

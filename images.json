@@ -1,42 +1,52 @@
 [
   {
     "src": "assets/SCREEN-SAVER-1920X1080PX.jpg",
-    "title": "Screen saver"
+    "title": "Screen saver",
+    "thumbnail": "assets/thumbs/story-1.jpg"
   },
   {
     "src": "assets/BB-4-Hosts-2.png",
-    "title": "Four houses. One epic moment."
+    "title": "Four houses. One epic moment.",
+    "thumbnail": "assets/thumbs/story-2.jpg"
   },
   {
     "src": "assets/BKU-PR-Horizontal.jpg",
-    "title": "BKU \u2014 The collection"
+    "title": "BKU \u2014 The collection",
+    "thumbnail": "assets/thumbs/story-3.jpg"
   },
   {
     "src": "assets/BKU-JHS-Record-16x9-1.png",
-    "title": "BKU \u2014 A record moment"
+    "title": "BKU \u2014 A record moment",
+    "thumbnail": "assets/thumbs/story-4.jpg"
   },
   {
     "src": "assets/RESORT-16x9-Poster_2-1asdsadsadsadsadsadsadsad-scaled.png",
-    "title": "The Resort"
+    "title": "The Resort",
+    "thumbnail": "assets/thumbs/story-5.jpg"
   },
   {
     "src": "assets/JTWM_Disney-PR-Creative.jpg",
-    "title": "Disney \u2014 A world of stories"
+    "title": "Disney \u2014 A world of stories",
+    "thumbnail": "assets/thumbs/story-6.jpg"
   },
   {
     "src": "assets/JioStar-Network-Festive-Movies.jpg",
-    "title": "Festive movie collection"
+    "title": "Festive movie collection",
+    "thumbnail": "assets/thumbs/story-7.jpg"
   },
   {
     "src": "assets/Onam-for-Press-release-and-JioStar-Website-v2.jpg",
-    "title": "Celebrating Onam"
+    "title": "Celebrating Onam",
+    "thumbnail": "assets/thumbs/story-8.jpg"
   },
   {
     "src": "assets/Thudakkam-Horizontal-5.png",
-    "title": "Thudakkam"
+    "title": "Thudakkam",
+    "thumbnail": "assets/thumbs/story-9.jpg"
   },
   {
     "src": "assets/BB_20A_16x9.jpg",
-    "title": "Bigg Boss"
+    "title": "Bigg Boss",
+    "thumbnail": "assets/thumbs/story-10.jpg"
   }
 ]

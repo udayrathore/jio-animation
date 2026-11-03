@@ -1,11 +1,11 @@
 // Page integration for the supplied Osmo Globe Gallery.
-(async function(){
-const images=await fetch('images.json').then(r=>r.json());
+(function(){
+const images=[...document.querySelectorAll('[data-globe-gallery-item] img')].map(img=>({src:img.dataset.original||img.getAttribute('src'),thumbnail:img.getAttribute('src'),title:img.alt}));
 const root=document.querySelector('[data-globe-gallery-init]'),stage=document.querySelector('.stage'),index=document.querySelector('.index'),dialog=document.querySelector('dialog');
 let selected=0,paused=matchMedia('(prefers-reduced-motion: reduce)').matches,grid=false,scrollScene;
 function sync(){if(root.globeGallery)root.globeGallery.paused=paused||grid||dialog.open;document.querySelector('#pause').textContent=paused?'Resume motion':'Pause motion';document.querySelector('#pause').setAttribute('aria-pressed',String(paused))}
 function open(i){selected=(i+images.length)%images.length;dialog.querySelector('img').src=images[selected].src;dialog.querySelector('img').alt=images[selected].title;dialog.querySelector('.caption span').textContent=images[selected].title;if(!dialog.open)dialog.showModal();sync()}
-images.forEach((im,i)=>{const card=document.createElement('button'),img=document.createElement('img'),label=document.createElement('span');img.src=im.src;img.alt=im.title;label.textContent=String(i+1).padStart(2,'0')+' / '+im.title;card.append(img,label);card.onclick=()=>open(i);index.append(card)});
+images.forEach((im,i)=>{const card=document.createElement('button'),img=document.createElement('img'),label=document.createElement('span');img.src=im.thumbnail;img.alt=im.title;img.loading="lazy";img.decoding="async";label.textContent=String(i+1).padStart(2,'0')+' / '+im.title;card.append(img,label);card.onclick=()=>open(i);index.append(card)});
 document.querySelector('#count').textContent=images.length+' STORIES / ONE GLOBE';
 dialog.querySelector('.close').onclick=()=>dialog.close();dialog.addEventListener('close',sync);dialog.addEventListener('click',e=>{if(e.target===dialog)dialog.close()});document.querySelector('#detail-prev').onclick=()=>open(selected-1);document.querySelector('#detail-next').onclick=()=>open(selected+1);
 dialog.addEventListener('keydown',e=>{if(e.key==='ArrowLeft')open(selected-1);if(e.key==='ArrowRight')open(selected+1)});

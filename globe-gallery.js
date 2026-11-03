@@ -121,6 +121,7 @@ function initGlobeGallery() {
     }
 
     function layout() {
+      if (!list.offsetWidth) return; // Keep valid geometry while the index hides the stage.
       const listStyle = getComputedStyle(list);
       const columnGap = parseFloat(listStyle.columnGap) || 0;
       const rowGap = parseFloat(listStyle.rowGap) || 0;
@@ -140,6 +141,7 @@ function initGlobeGallery() {
     }
 
     function render() {
+      if (!radius) return;
       cards.forEach((card) => {
         const { element, sinLatitude, cosLatitude } = card;
         const theta = card.longitude + spin;
@@ -212,7 +214,7 @@ function initGlobeGallery() {
     });
 
     gsap.ticker.add((time, deltaTime) => {
-      const seconds = Math.min(deltaTime, 100) / 1000;
+      const seconds = Math.max(1, Math.min(deltaTime, 64)) / 1000;
       const scrollSpeed = scrollDistance / seconds;
       scrollDistance = 0;
       if (!motionAllowed || !inView || root.globeGallery.paused || document.hidden) return;
