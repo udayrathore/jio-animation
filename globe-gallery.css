@@ -1,0 +1,59 @@
+.globe-gallery {
+  position: relative;
+  width: 50em;
+  max-width: 100%;
+  aspect-ratio: 1 / 1;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+.globe-gallery__collection {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.globe-gallery__list {
+  position: absolute;
+  inset: 0%;
+  display: flex;
+  gap: 1em;
+}
+
+.globe-gallery__item {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  border-radius: 0.5em;
+  overflow: hidden;
+}
+
+.globe-gallery:not([data-globe-gallery-status="active"]) .globe-gallery__item {
+  visibility: hidden;
+}
+
+.globe-gallery__image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+@media screen and (max-width: 767px) {
+  .globe-gallery__list {
+    gap: 0.25em;
+  }
+
+  .globe-gallery__item {
+    border-radius: 0.25em;
+  }
+}
+
+/* Fit the supplied gallery within the existing hero and show complete artwork. */
+.stage .globe-gallery{width:72%;max-width:440px;font-size:10px;aspect-ratio:1;flex-shrink:0}
+.globe-gallery__item{padding:0;border:0;background:#101010;cursor:pointer;border-radius:5px}
+.globe-gallery__image{object-fit:contain;pointer-events:none}
+.globe-gallery__item:hover{background:#101010;outline:1px solid #e90093}
+.globe-gallery__item:focus-visible{outline:2px solid #e90093;outline-offset:3px}
+.globe-zoom{perspective:none}
+@media(max-width:760px){.stage .globe-gallery{width:74%;font-size:8px}}
