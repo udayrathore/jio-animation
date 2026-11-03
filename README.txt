@@ -29,3 +29,7 @@ globe scale, horizontal/vertical offset, and headline size. Fewer rows/columns
 produce larger image cards. Settings save to this browser's localStorage;
 Reset restores the original defaults. The fixed popup does not reflow the page.
 Verified live density changes, sliders, reset, and persistence after reload.
+
+Vercel: vercel.json selects the static Other preset, runs npm run build,
+and publishes dist/. Keep the project Root Directory at the repository root.
+The local server is only for npm start; browser app.js must not be a Function.
